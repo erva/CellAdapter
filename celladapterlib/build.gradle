@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 24
@@ -21,34 +22,14 @@ android {
     }
 }
 
-project.afterEvaluate {
-    task bintrayUpload(group: "publishing", overwrite: true) {
-        dependsOn subprojects.bintrayUpload
-    }
-}
-
-group = 'org.ervin.celladapterlib'
-version = '1.0.1'
-
-bintray {
-    user = 'xxx'
-    key = 'xxx'
-    pkg {
-        repo = 'CellAdapter'
-        name = 'org.ervin.celladapterlib'
-
-       version {
-            name = '1.0.1'
-            desc = 'My test upload'
-            released  = new Date()
-            vcsTag = '1.0.1'
-        }
-
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/ervinmartirosyan/CellAdapter.git'
-        websiteUrl = 'https://github.com/ervinmartirosyan/CellAdapter'
-    }
-    configurations = ['archives']
+publish {
+    repoName = 'CellAdapter'
+    groupId = 'com.github.ervinmartirosyan'
+    artifactId = 'celladapterlib'
+    publishVersion = '1.0.1'
+    desc = 'A small library to simplify RecyclerView adapter by using auto mapping item view with model'
+    licences = ['Apache-2.0']
+    website = 'https://github.com/ervinmartirosyan/CellAdapter'
 }
 
 dependencies {
