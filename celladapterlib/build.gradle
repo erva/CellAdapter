@@ -21,6 +21,36 @@ android {
     }
 }
 
+project.afterEvaluate {
+    task bintrayUpload(group: "publishing", overwrite: true) {
+        dependsOn subprojects.bintrayUpload
+    }
+}
+
+group = 'org.ervin.celladapterlib'
+version = '1.0.1'
+
+bintray {
+    user = 'xxx'
+    key = 'xxx'
+    pkg {
+        repo = 'CellAdapter'
+        name = 'org.ervin.celladapterlib'
+
+       version {
+            name = '1.0.1'
+            desc = 'My test upload'
+            released  = new Date()
+            vcsTag = '1.0.1'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/ervinmartirosyan/CellAdapter.git'
+        websiteUrl = 'https://github.com/ervinmartirosyan/CellAdapter'
+    }
+    configurations = ['archives']
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
