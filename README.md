@@ -23,7 +23,8 @@ public class YourCell extends Cell<Model, YourCell.Listener> {
 }
 ```
 Also please find 
-[`https://github.com/ervinmartirosyan/CellAdapter/blob/master/sample/src/main/java/org/ervin/sample/BaseCellAdapter.java`](CellAdapter/sample/src/main/java/org/ervin/sample/BaseCell.java)there is sample how to implement Butterknife in Cells.
+[`CellAdapter/sample/src/main/java/org/ervin/sample/BaseCell.java`](https://github.com/ervinmartirosyan/CellAdapter/blob/master/sample/src/main/java/org/ervin/sample/BaseCellAdapter.java) 
+there is sample how to implement Butterknife in Cells.
 
 ## Download
 
