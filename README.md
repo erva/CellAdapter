@@ -1,6 +1,13 @@
 # CellAdapter
 
-## Gradle Dependency
+## Usage
+
+```java
+CellAdapter adapter = new CellAdapter(context);
+adapter.registerCell(Model.class, Cell.class, Cell.Listener);
+```
+
+## Download
 
 ### Repository
 
