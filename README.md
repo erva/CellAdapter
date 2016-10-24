@@ -1,5 +1,4 @@
 # CellAdapter
-============
 
 ## Usage
 -------
