@@ -7,14 +7,12 @@ CellAdapter adapter = new CellAdapter(context);
 adapter.registerCell(Model.class, YourCell.class, new YourCell.Listener(){});
 ```
 where
-`Model.class` is POJO 
-
-`Cell.class` is
+`Model.class` is POJO and `YourCell.class` is
 ```java
 @Layout(R.layout.your_cell_view)
 public class YourCell extends Cell<Model, YourCell.Listener> {
 
-        @Override
+ 	@Override
 	protected void syncUiWithItem() {
 		getItem() // is your Model object
 	}
