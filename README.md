@@ -1,7 +1,6 @@
 # CellAdapter
 
 ## Usage
--------
 
 ```java
 CellAdapter adapter = new CellAdapter(context);
