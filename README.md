@@ -28,7 +28,7 @@ there is sample how to implement Butterknife in Cells.
 
 ## Download
 
-The Gradle dependency is available via [jCenter](https://bintray.com/ervin/CellAdapter/celladapterlib).
+The dependency is available via [jCenter](https://bintray.com/ervin/CellAdapter/celladapterlib).
 jCenter is the default Maven repository used by Android Studio.
 
 #### Gradle
