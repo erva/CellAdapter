@@ -23,12 +23,12 @@ android {
 }
 
 publish {
-    repoName = 'CellAdapter'
+    repoName = 'android'
     groupId = 'com.github.techery'
-    artifactId = 'celladapter'
+    artifactId = 'io.techery.celladapter'
     publishVersion = '1.0.1'
     desc = 'A small library to simplify RecyclerView adapter by using auto mapping item view with model'
-    licences = ['Apache-2.0']
+    licences = ['MIT']
     website = 'https://github.com/techery/CellAdapter'
 }
 
