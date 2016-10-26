@@ -23,6 +23,7 @@ android {
 }
 
 publish {
+    userOrg = 'techery'
     repoName = 'android'
     groupId = 'com.github.techery'
     artifactId = 'io.techery.celladapter'
