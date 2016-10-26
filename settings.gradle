@@ -1,1 +1,1 @@
-include ':celladapterlib', ':sample'
+include ':celladapter', ':sample'
