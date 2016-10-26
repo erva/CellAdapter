@@ -4,7 +4,8 @@
 
 ```java
 CellAdapter adapter = new CellAdapter(context);
-adapter.registerCell(Model.class, YourCell.class, new YourCell.Listener(){}); //feel free to register multiple models and cells (model per cell, so your RecyclerView would represent multiple view types)
+//feel free to register multiple models and cells (model per cell, so your RecyclerView would represent multiple view types)
+adapter.registerCell(Model.class, YourCell.class, new YourCell.Listener(){}); 
 
 List items = new ArrayList();
 items.add(new Model());
