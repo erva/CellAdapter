@@ -1,5 +1,30 @@
 # CellAdapter
 
+This library simplifies RecyclerView with multiple view types. Also from now you would need only one RecyclerView.Adapter.
+Main points:
+
+* Single adapter class for all project
+* Extend item types in RecyclerView - just register in adapter and extend Cell.class for mapping model with UI (below more details + [`sample`](https://github.com/techery/CellAdapter/tree/master/sample/src/main/java/io/techery/sample))
+* Add any UI listeners to each item type
+
+No more code like this:
+```java
+@Override
+public int getItemViewType(int position) {
+	// Just as an example, return 0 or 2 depending on position
+	// Note that unlike in ListView adapters, types don't have to be contiguous
+	return position % 2 * 2;
+}
+
+@Override
+public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+	switch (viewType) {
+		case 0: return new ViewHolder0(...);
+		case 2: return new ViewHolder2(...);
+		...
+	}
+}
+
 ## Usage
 
 ```java
