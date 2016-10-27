@@ -24,6 +24,7 @@ public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType
 		...
 	}
 }
+```
 
 ## Usage
 
