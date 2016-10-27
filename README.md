@@ -1,6 +1,6 @@
 # CellAdapter
 
-This library simplifies RecyclerView with multiple view types. Also from now you would need only one RecyclerView.Adapter.
+This library simplifies RecyclerView with multiple view types.
 Main points:
 
 * Single adapter class for all project
