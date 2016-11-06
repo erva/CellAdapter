@@ -92,15 +92,19 @@ public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
 		return super.getItemId(position);
 	}
 
-	@Override
-	public int getItemViewType(int position) {
-		ITEM ITEM = items.get(position);
-		Class itemClass = ITEM.getClass();
+	public int getClassItemViewType(Class<?> itemClass) {
 		int index = viewTypes.indexOf(itemClass);
 		if (index < 0) {
 			throw new IllegalArgumentException(itemClass.getSimpleName() + " is not registered");
 		}
 		return index;
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		ITEM ITEM = items.get(position);
+		Class itemClass = ITEM.getClass();
+		return getClassItemViewType(itemClass);
 	}
 
 	@Override

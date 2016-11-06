@@ -1,4 +1,4 @@
-package io.techery.sample.model;
+package io.techery.sample.base.model;
 
 public class AlphaModel {
 	private String alpha;

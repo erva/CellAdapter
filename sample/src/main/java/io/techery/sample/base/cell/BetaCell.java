@@ -1,18 +1,16 @@
-package io.techery.sample.cell;
+package io.techery.sample.base.cell;
 
 import android.view.View;
 import android.widget.TextView;
 
-import io.techery.sample.R;
-
-import io.techery.sample.BaseCell;
-import io.techery.sample.model.BetaModel;
+import butterknife.BindView;
 import io.techery.celladapter.Cell;
 import io.techery.celladapter.Layout;
+import io.techery.sample.BaseCell;
+import io.techery.sample.R;
+import io.techery.sample.base.model.BetaModel;
 
-import butterknife.BindView;
-
-@Layout(R.layout.item_beta)
+@Layout(R.layout.item_base_beta)
 public class BetaCell extends BaseCell<BetaModel, BetaCell.Listener> {
 
 	@BindView(R.id.tv_beta)
