@@ -3,4 +3,5 @@
              android:id="@+id/rb_single"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
+             android:layout_marginLeft="20dp"
              android:padding="20dp"/>

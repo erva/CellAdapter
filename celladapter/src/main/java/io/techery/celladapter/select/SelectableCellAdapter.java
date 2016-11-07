@@ -3,9 +3,8 @@ package io.techery.celladapter.select;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import io.techery.celladapter.Cell;
@@ -59,7 +58,7 @@ public class SelectableCellAdapter<ITEM> extends CellAdapter<ITEM> {
         return selectedPositions.size();
     }
 
-    public List<Integer> getSelectedPositions() {
-        return new ArrayList<>(selectedPositions);
+    public Collection<Integer> getSelectedPositions() {
+        return selectedPositions;
     }
 }

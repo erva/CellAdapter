@@ -1,5 +1,6 @@
 package io.techery.celladapter.select.mode;
 
+import java.util.Collection;
 import java.util.List;
 
 public class MultiSelectionManager extends SelectionManager {
@@ -21,7 +22,7 @@ public class MultiSelectionManager extends SelectionManager {
         return selectableCellAdapter.getSelectedPositions().contains(position);
     }
 
-    public List<Integer> getSelectedPositions() {
+    public Collection<Integer> getSelectedPositions() {
         return selectableCellAdapter.getSelectedPositions();
     }
 
