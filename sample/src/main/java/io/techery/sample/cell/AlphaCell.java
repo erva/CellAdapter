@@ -24,13 +24,8 @@ public class AlphaCell extends BaseCell<AlphaModel, AlphaCell.Listener> {
 	}
 
 	@Override
-	protected void syncUiWithItem() {
+	protected void bindView() {
 		textView.setText(getItem().getAlpha());
-	}
-
-	@Override
-	public void prepareForReuse() {
-
 	}
 
 	@OnClick(R.id.btn_press)

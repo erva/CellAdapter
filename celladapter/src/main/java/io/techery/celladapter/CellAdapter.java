@@ -1,7 +1,8 @@
 package io.techery.celladapter;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -11,43 +12,28 @@ import android.view.ViewGroup;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @param <ITEM> is yours POJO model
- */
-public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
+public class CellAdapter extends RecyclerView.Adapter<Cell> {
 
-	/**
-	 * Map<model, Cell child for introducing model></>
-	 */
-	private final Map<Class, Class<? extends Cell>> itemCellMap = new HashMap<>();
+	private final Map<Class, Class<? extends Cell>> itemCellMap = new ArrayMap<>();
 	private final List<Class> viewTypes = new ArrayList<>();
-	private final SparseArray<Cell.Listener> typeListenerMapping = new SparseArray<>();
-	protected List<ITEM> items = new ArrayList<>();
+	private final SparseArray<Cell.Listener<?>> typeListenerMapping = new SparseArray<>();
+	private List items = new ArrayList<>();
 
-	private LayoutInflater layoutInflater;
-
-	public CellAdapter(Context context) {
-		layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
-
-	public void registerCell(Class<?> itemClass,
-							 Class<? extends Cell> cellClass) {
+	public void registerCell(@NonNull Class<?> itemClass,
+							 @NonNull Class<? extends Cell> cellClass) {
 		registerCell(itemClass, cellClass, null);
 	}
 
-	public void registerCell(Class<?> itemClass,
-							 Class<? extends Cell> cellClass,
+	public void registerCell(@NonNull Class<?> itemClass,
+							 @NonNull Class<? extends Cell> cellClass,
 							 @Nullable Cell.Listener<?> cellListener) {
 		itemCellMap.put(itemClass, cellClass);
 		int type = viewTypes.indexOf(itemClass);
-		if (type == -1) {
-			viewTypes.add(itemClass);
-		}
-		registerListener(itemClass, cellListener);
+		if (type == -1) viewTypes.add(itemClass);
+		if (cellListener != null) registerListener(itemClass, cellListener);
 	}
 
 	private void registerListener(Class<?> itemClass,
@@ -60,8 +46,7 @@ public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
 
 	@Override
 	public Cell onCreateViewHolder(ViewGroup parent, int viewType) {
-		Class itemClass = viewTypes.get(viewType);
-		Class<? extends Cell> cellClass = itemCellMap.get(itemClass);
+		Class<? extends Cell> cellClass = itemCellMap.get(viewTypes.get(viewType));
 		Cell cell = buildCell(cellClass, parent);
 		cell.setCellDelegate(typeListenerMapping.get(viewType));
 		return cell;
@@ -69,7 +54,7 @@ public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
 
 	private Cell buildCell(Class<? extends Cell> cellClass, ViewGroup parent) {
 		Layout layoutAnnotation = cellClass.getAnnotation(Layout.class);
-		View cellView = layoutInflater.inflate(layoutAnnotation.value(), parent, false);
+		View cellView = LayoutInflater.from(parent.getContext()).inflate(layoutAnnotation.value(), parent, false);
 		RecyclerView.ViewHolder cellObject = null;
 		try {
 			Constructor<? extends RecyclerView.ViewHolder> constructor = cellClass.getConstructor(View.class);
@@ -82,20 +67,12 @@ public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
 
 	@Override
 	public void onBindViewHolder(Cell cell, int position) {
-		ITEM item = getItem(position);
-		cell.prepareForReuse();
-		cell.fillWithItem(item);
-	}
-
-	@Override
-	public long getItemId(int position) {
-		return super.getItemId(position);
+		cell.bindViewInternal(getItem(position));
 	}
 
 	@Override
 	public int getItemViewType(int position) {
-		ITEM ITEM = items.get(position);
-		Class itemClass = ITEM.getClass();
+		Class itemClass = items.get(position).getClass();
 		int index = viewTypes.indexOf(itemClass);
 		if (index < 0) {
 			throw new IllegalArgumentException(itemClass.getSimpleName() + " is not registered");
@@ -108,15 +85,19 @@ public class CellAdapter<ITEM> extends RecyclerView.Adapter<Cell> {
 		return items.size();
 	}
 
-	public ITEM getItem(int position) {
+	public boolean contains(Object item) {
+		return items.contains(item);
+	}
+
+	public Object getItem(int position) {
 		return items.get(position);
 	}
 
-	public List<ITEM> getItems() {
+	public List getItems() {
 		return items;
 	}
 
-	public void setItems(List<ITEM> items) {
+	public void setItems(List items) {
 		this.items = items;
 	}
 

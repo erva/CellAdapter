@@ -29,17 +29,14 @@ public abstract class Cell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends R
         });
     }
 
+    protected abstract void bindView();
+
     protected final ITEM getItem() {
         return item;
     }
 
     protected LISTENER getListener() {
         return listener;
-    }
-
-    protected abstract void syncUiWithItem();
-
-    protected void prepareForReuse() {
     }
 
     protected void clearResources() {
@@ -49,13 +46,9 @@ public abstract class Cell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends R
         this.listener = listener;
     }
 
-    void setItem(ITEM item) {
+    void bindViewInternal(ITEM item) {
         this.item = item;
-    }
-
-    void fillWithItem(ITEM item) {
-        setItem(item);
-        syncUiWithItem();
+        bindView();
     }
 
     public interface Listener<ITEM> {

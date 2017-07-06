@@ -32,7 +32,7 @@ public class SampleActivity extends AppCompatActivity {
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
 		recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
-		adapter = new CellAdapter(this);
+		adapter = new CellAdapter();
 		adapter.registerCell(AlphaModel.class, AlphaCell.class, new AlphaCell.Listener() {
 			@Override
 			public void callbackSample(AlphaModel model) {
@@ -50,12 +50,7 @@ public class SampleActivity extends AppCompatActivity {
 				Log.d("CellAdapter", model.getBeta());
 			}
 		});
-		adapter.registerCell(GammaModel.class, GammaCell.class, new GammaCell.Listener() {
-			@Override
-			public void onCellClicked(GammaModel model) {
-				Log.d("CellAdapter", model.getGamma());
-			}
-		});
+		adapter.registerCell(GammaModel.class, GammaCell.class);
 		recyclerView.setAdapter(adapter);
 
 		List items = new ArrayList();

@@ -13,7 +13,7 @@ import io.techery.sample.model.GammaModel;
 import butterknife.BindView;
 
 @Layout(R.layout.item_gamma)
-public class GammaCell extends BaseCell<GammaModel, GammaCell.Listener> {
+public class GammaCell extends BaseCell<GammaModel, Cell.Listener<GammaModel>> {
 
 	@BindView(R.id.tv_gamma)
 	TextView textView;
@@ -23,16 +23,7 @@ public class GammaCell extends BaseCell<GammaModel, GammaCell.Listener> {
 	}
 
 	@Override
-	protected void syncUiWithItem() {
+	protected void bindView() {
 		textView.setText(getItem().getGamma());
-	}
-
-	@Override
-	public void prepareForReuse() {
-
-	}
-
-	public interface Listener extends Cell.Listener<GammaModel> {
-
 	}
 }
