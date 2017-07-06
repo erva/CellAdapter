@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 24
@@ -17,17 +16,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-publish {
-    userOrg = 'techery'
-    repoName = 'android'
-    groupId = 'io.techery'
-    artifactId = 'celladapter'
-    publishVersion = '1.0.1'
-    desc = 'A small library to simplify RecyclerView adapter by using auto mapping item view with model'
-    licences = ['MIT']
-    website = 'https://github.com/techery/CellAdapter'
 }
 
 dependencies {
