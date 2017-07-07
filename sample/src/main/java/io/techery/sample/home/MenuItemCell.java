@@ -9,7 +9,7 @@ import io.techery.celladapter.Layout;
 import io.techery.sample.BaseCell;
 
 @Layout(android.R.layout.simple_list_item_1)
-public class MenuItemCell extends BaseCell<MenuItem, Cell.Listener<MenuItem>> {
+public class MenuItemCell extends BaseCell<MenuItemModel, Cell.Listener<MenuItemModel>> {
 
     @BindView(android.R.id.text1) TextView titleTv;
 

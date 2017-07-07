@@ -38,13 +38,13 @@ public class BaseSampleActivity extends AppCompatActivity {
 
             @Override
             public void onPressOne(AlphaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format("%s\npress button %d", model.getAlpha(), 1),
+                Toast.makeText(BaseSampleActivity.this, String.format("%s%npress button %d", model.getAlpha(), 1),
                         Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPressTwo(AlphaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format("%s\npress button %d", model.getAlpha(), 2),
+                Toast.makeText(BaseSampleActivity.this, String.format("%s%npress button %d", model.getAlpha(), 2),
                         Toast.LENGTH_SHORT).show();
             }
 

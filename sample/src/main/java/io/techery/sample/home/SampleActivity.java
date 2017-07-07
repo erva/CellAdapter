@@ -32,17 +32,17 @@ public class SampleActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         adapter = new CellAdapter();
-        adapter.registerCell(MenuItem.class, MenuItemCell.class, new Cell.Listener<MenuItem>() {
+        adapter.registerCell(MenuItemModel.class, MenuItemCell.class, new Cell.Listener<MenuItemModel>() {
             @Override
-            public void onCellClicked(MenuItem menuItem) {
-                startActivity(new Intent(SampleActivity.this, menuItem.clazz));
+            public void onCellClicked(MenuItemModel menuItemModel) {
+                startActivity(new Intent(SampleActivity.this, menuItemModel.clazz));
             }
         });
         recyclerView.setAdapter(adapter);
         adapter.setItems(Arrays.asList(
-                new MenuItem(R.string.sample_base, BaseSampleActivity.class),
-                new MenuItem(R.string.sample_single_choice, SingleChoiceActivity.class),
-                new MenuItem(R.string.sample_multi_choice, MultiChoiceActivity.class)
+                new MenuItemModel(R.string.sample_base, BaseSampleActivity.class),
+                new MenuItemModel(R.string.sample_single_choice, SingleChoiceActivity.class),
+                new MenuItemModel(R.string.sample_multi_choice, MultiChoiceActivity.class)
         ));
         adapter.notifyDataSetChanged();
     }
