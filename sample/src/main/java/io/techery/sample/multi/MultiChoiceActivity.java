@@ -30,7 +30,7 @@ public class MultiChoiceActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         MultiSelectionManager multiSelectionManager = new MultiSelectionManager();
-        adapter = new SelectableCellAdapter(this, multiSelectionManager);
+        adapter = new SelectableCellAdapter(multiSelectionManager);
         adapter.registerCell(MultiChoiceModel.class, MultiChoiceCell.class, new Cell.Listener<MultiChoiceModel>() {
             @Override
             public void onCellClicked(MultiChoiceModel multiChoiceModel) {

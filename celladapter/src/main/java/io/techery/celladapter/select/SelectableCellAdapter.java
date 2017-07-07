@@ -1,6 +1,5 @@
 package io.techery.celladapter.select;
 
-import android.content.Context;
 import android.view.ViewGroup;
 
 import java.util.Collection;
@@ -16,7 +15,7 @@ public class SelectableCellAdapter extends CellAdapter {
     private Set<Integer> selectedPositions;
     private SelectionManager selectionManager;
 
-    public SelectableCellAdapter(Context context, SelectionManager selectionManager) {
+    public SelectableCellAdapter(SelectionManager selectionManager) {
         this(new HashSet<Integer>(), selectionManager);
     }
 

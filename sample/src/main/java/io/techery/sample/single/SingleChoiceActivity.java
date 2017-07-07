@@ -30,7 +30,7 @@ public class SingleChoiceActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         SingleSelectionManager singleSelectionManager = new SingleSelectionManager();
-        adapter = new SelectableCellAdapter(this, singleSelectionManager);
+        adapter = new SelectableCellAdapter(singleSelectionManager);
         adapter.registerCell(SingleChoiceModel.class, SingleChoiceCell.class, new Cell.Listener<SingleChoiceModel>() {
             @Override
             public void onCellClicked(SingleChoiceModel singleChoiceModel) {

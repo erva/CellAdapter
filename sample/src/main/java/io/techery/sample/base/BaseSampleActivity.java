@@ -38,27 +38,27 @@ public class BaseSampleActivity extends AppCompatActivity {
 
             @Override
             public void onPressOne(AlphaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format("%s%npress button %d", model.getAlpha(), 1),
+                Toast.makeText(BaseSampleActivity.this,
+                        String.format("%s%npress button %d", model.getAlpha(), 1),
                         Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPressTwo(AlphaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format("%s%npress button %d", model.getAlpha(), 2),
+                Toast.makeText(BaseSampleActivity.this,
+                        String.format("%s%npress button %d", model.getAlpha(), 2),
                         Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCellClicked(AlphaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format(model.getAlpha()),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(BaseSampleActivity.this, model.getAlpha(), Toast.LENGTH_SHORT).show();
             }
         });
         adapter.registerCell(BetaModel.class, BetaCell.class, new BetaCell.Listener() {
             @Override
             public void onCellClicked(BetaModel model) {
-                Toast.makeText(BaseSampleActivity.this, String.format(model.getBeta()),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(BaseSampleActivity.this, model.getBeta(), Toast.LENGTH_SHORT).show();
             }
         });
         adapter.registerCell(GammaModel.class, GammaCell.class, null);
