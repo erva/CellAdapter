@@ -2,9 +2,8 @@ package io.techery.sample;
 
 import android.view.View;
 
-import io.techery.celladapter.Cell;
-
 import butterknife.ButterKnife;
+import io.techery.celladapter.Cell;
 
 public abstract class BaseCell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends Cell<ITEM, LISTENER> {
 

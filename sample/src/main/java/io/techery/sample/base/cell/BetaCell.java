@@ -13,19 +13,18 @@ import io.techery.sample.base.model.BetaModel;
 @Layout(R.layout.item_base_beta)
 public class BetaCell extends BaseCell<BetaModel, BetaCell.Listener> {
 
-	@BindView(R.id.tv_beta)
-	TextView textView;
+    @BindView(R.id.tv_beta) TextView textView;
 
-	public BetaCell(View view) {
-		super(view);
-	}
+    public BetaCell(View view) {
+        super(view);
+    }
 
-	@Override
-	protected void bindView() {
-		textView.setText(getItem().getBeta());
-	}
+    @Override
+    protected void bindView() {
+        textView.setText(getItem().getBeta());
+    }
 
-	public interface Listener extends Cell.Listener<BetaModel> {
+    public interface Listener extends Cell.Listener<BetaModel> {
 
-	}
+    }
 }
