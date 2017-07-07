@@ -78,5 +78,4 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 			return layoutManager.getOrientation();
 		} else throw new IllegalStateException("DividerItemDecoration can only be used with a LinearLayoutManager.");
 	}
-
 }

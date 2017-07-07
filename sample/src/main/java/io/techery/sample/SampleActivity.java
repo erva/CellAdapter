@@ -8,12 +8,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import io.techery.celladapter.CellAdapter;
-import io.techery.sample.cell.AlphaCell;
-import io.techery.sample.cell.BetaCell;
-import io.techery.sample.cell.GammaCell;
-import io.techery.sample.model.AlphaModel;
-import io.techery.sample.model.BetaModel;
-import io.techery.sample.model.GammaModel;
+import io.techery.sample.base.cell.AlphaCell;
+import io.techery.sample.base.cell.BetaCell;
+import io.techery.sample.base.cell.GammaCell;
+import io.techery.sample.base.model.AlphaModel;
+import io.techery.sample.base.model.BetaModel;
+import io.techery.sample.base.model.GammaModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class SampleActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sample);
+		setContentView(R.layout.activity_with_recycler_view);
 
 		recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -35,8 +35,13 @@ public class SampleActivity extends AppCompatActivity {
 		adapter = new CellAdapter();
 		adapter.registerCell(AlphaModel.class, AlphaCell.class, new AlphaCell.Listener() {
 			@Override
-			public void callbackSample(AlphaModel model) {
-				Toast.makeText(SampleActivity.this, model.getAlpha(), Toast.LENGTH_SHORT).show();
+			public void onPressOne(AlphaModel model) {
+				Toast.makeText(SampleActivity.this, model.getAlpha() + " : 1", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onPressTwo(AlphaModel model) {
+				Toast.makeText(SampleActivity.this, model.getAlpha() + " : 2", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
