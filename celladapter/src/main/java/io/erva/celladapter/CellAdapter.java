@@ -89,6 +89,14 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
 		return items.contains(item);
 	}
 
+	public int indexOf(Object item) {
+		return items.indexOf(item);
+	}
+
+    public void replaceItem(int position, Object item) {
+        items.set(position, item);
+    }
+
 	public Object getItem(int position) {
 		return items.get(position);
 	}
@@ -100,6 +108,27 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
 	public void setItems(List items) {
 		this.items = items;
 	}
+
+    public void addItem(int position, Object item) {
+        items.add(position, item);
+    }
+
+    public void addItems(List items) {
+        if (items != null) {
+            this.items.addAll(items);
+        }
+    }
+
+    public void remove(Object item) {
+        if (item != null) {
+            int position = indexOf(item);
+            if (position != -1) remove(position);
+        }
+    }
+
+    public void remove(int position) {
+        items.remove(position);
+    }
 
 	public void clear() {
 		items.clear();
