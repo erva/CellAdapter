@@ -109,6 +109,10 @@ public class CellAdapter extends RecyclerView.Adapter<Cell> {
         this.items = items;
     }
 
+    public void addItem(Object item) {
+        items.add(item);
+    }
+
     public void addItem(int position, Object item) {
         items.add(position, item);
     }
