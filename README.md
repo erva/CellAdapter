@@ -1,5 +1,7 @@
 # CellAdapter
 
+[![](https://jitpack.io/v/erva/CellAdapter.svg)](https://jitpack.io/#erva/CellAdapter)
+
 This library simplifies RecyclerView with multiple view types.
 Main points:
 
@@ -63,24 +65,19 @@ there is sample how to implement ButterKnife in Cells.
 
 ## Download
 
-The dependency is available via [jCenter](https://bintray.com/erva/android/celladapter). 
-jCenter is the default Maven repository used by Android Studio.
-
-#### Gradle
+Add the JitPack repository in your root build.gradle at the end of repositories:
 ```groovy
-dependencies {
-  compile 'io.erva:celladapter:1.0.1'
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
-
-#### Maven
-```xml
-<dependency>
-  <groupId>io.erva</groupId>
-  <artifactId>celladapter</artifactId>
-  <version>1.0.1</version>
-  <type>pom</type>
-</dependency>
+Add the dependency:
+```groovy
+dependencies {
+  compile 'com.github.erva:CellAdapter:2.0.2'
+}
 ```
 
 ## Proguard
