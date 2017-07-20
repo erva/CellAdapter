@@ -4,7 +4,7 @@ This library simplifies RecyclerView with multiple view types.
 Main points:
 
 * Single adapter class for all project
-* Extend item types in RecyclerView - just register in adapter and extend Cell.class for mapping model with UI (below more details + [`sample`](https://github.com/techery/CellAdapter/tree/master/sample/src/main/java/io/techery/sample))
+* Extend item types in RecyclerView - just register in adapter and extend Cell.class for mapping model with UI (below more details + [`sample`](https://github.com/erva/CellAdapter/tree/master/sample/src/main/java/io/erva/sample))
 * Add any UI listeners to each item type
 
 No more code like this:
@@ -44,12 +44,8 @@ where
 public class YourCell extends Cell<Model, YourCell.Listener> {
 
  	@Override
-	protected void syncUiWithItem() {
-		getItem() // is your Model object
-	}
-	
-	protected void prepareForReuse() {
-		//optional
+	protected void bindView() {
+		getItem(); // is your Model object
 	}
     
 	protected void clearResources() {
@@ -62,54 +58,40 @@ public class YourCell extends Cell<Model, YourCell.Listener> {
 }
 ```
 Also please find 
-[`CellAdapter/sample/src/main/java/io/techery/sample/BaseCell.java`](https://github.com/techery/CellAdapter/blob/master/sample/src/main/java/io/techery/sample/BaseCell.java) 
+[`CellAdapter/sample/src/main/java/io/erva/sample/BaseCell.java`](https://github.com/erva/CellAdapter/blob/master/sample/src/main/java/io/erva/sample/BaseCell.java) 
 there is sample how to implement ButterKnife in Cells.
 
 ## Download
 
-The dependency is available via [jCenter](https://bintray.com/techery/android/celladapter). 
+The dependency is available via [jCenter](https://bintray.com/erva/android/celladapter). 
 jCenter is the default Maven repository used by Android Studio.
 
 #### Gradle
 ```groovy
 dependencies {
-  compile 'io.techery:celladapter:1.0.1'
+  compile 'io.erva:celladapter:1.0.1'
 }
 ```
 
 #### Maven
 ```xml
 <dependency>
-  <groupId>io.techery</groupId>
+  <groupId>io.erva</groupId>
   <artifactId>celladapter</artifactId>
   <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
 
+## Proguard
+```
+#CellAdapter
+-keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
+```
+
 ## License
 
-    The MIT License (MIT)
-
-    Copyright (c) 2016 Techery (http://techery.io/)
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
+ Distributed under the terms of the GNU General Public License
 
 -------
 

@@ -15,3 +15,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#CellAdapter
+-keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
