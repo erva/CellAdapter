@@ -1,1 +1,1 @@
-include ':celladapter', ':sample'
+include ':celladapter', ':sample', ':celladapter-kotlin', ':sample-kotlin'

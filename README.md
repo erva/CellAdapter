@@ -84,6 +84,9 @@ dependencies {
 ```
 #CellAdapter
 -keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
+-keepclassmembers class * extends io.erva.celladapter.Cell {
+    <init>(android.view.View);
+}
 ```
 
 ## License

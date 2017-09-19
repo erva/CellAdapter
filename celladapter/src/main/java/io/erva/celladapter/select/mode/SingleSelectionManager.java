@@ -1,5 +1,7 @@
 package io.erva.celladapter.select.mode;
 
+import io.erva.celladapter.Cell;
+
 public class SingleSelectionManager extends SelectionManager {
 
     @Override
