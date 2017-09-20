@@ -1,20 +1,19 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = 'com.github.erva'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    def android = rootProject.extensions.ext.android
+
+    compileSdkVersion android.compileSdk
+    buildToolsVersion android.buildTools
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "2.0.2"
+        minSdkVersion android.minSdk
+        targetSdkVersion android.targetSdk
     }
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:25.3.1'
+    def version = rootProject.extensions.ext.version
+
+    compile "com.android.support:recyclerview-v7:${version.recyclerview}"
 }

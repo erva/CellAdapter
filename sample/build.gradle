@@ -2,16 +2,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    def android = rootProject.extensions.ext.android
+
+    compileSdkVersion android.compileSdk
+    buildToolsVersion android.buildTools
 
     defaultConfig {
-        applicationId "io.erva.sample"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "2.0.2"
+        applicationId android.applicationId
+        minSdkVersion android.minSdk
+        targetSdkVersion android.targetSdk
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,9 +23,10 @@ android {
 
 dependencies {
     compile project(path: ':celladapter')
+    def version = rootProject.extensions.ext.version
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile "com.android.support:appcompat-v7:${version.appcompat}"
 
-    compile 'com.jakewharton:butterknife:8.6.0'
-    apt 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile "com.jakewharton:butterknife:${version.butterknife}"
+    apt "com.jakewharton:butterknife-compiler:${version.butterknife}"
 }

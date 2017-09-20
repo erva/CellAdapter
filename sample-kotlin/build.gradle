@@ -1,50 +1,48 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'android-apt'
 
 buildscript {
-
-    ext.kotlin_version = '1.1.3-2'
 
     repositories {
         jcenter()
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        def version = rootProject.extensions.ext.version
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlin"
     }
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    def android = rootProject.extensions.ext.android
+
+    compileSdkVersion android.compileSdk
+    buildToolsVersion android.buildTools
 
     defaultConfig {
-        applicationId "io.erva.sample"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "2.0.2"
+        minSdkVersion android.minSdk
+        targetSdkVersion android.targetSdk
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 
 dependencies {
     compile project(path: ':celladapter-kotlin')
+    def version = rootProject.extensions.ext.version
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-}
-
-repositories {
-    mavenCentral()
+    compile "com.android.support:appcompat-v7:$version.appcompat"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$version.kotlin"
 }
