@@ -1,5 +1,6 @@
 # CellAdapter
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/erva/CellAdapter.svg)](https://jitpack.io/#erva/CellAdapter)
 
 This library simplifies RecyclerView with multiple view types.
@@ -92,7 +93,7 @@ dependencies {
 
 ## License
 
- Distributed under the terms of the GNU General Public License
+ CellAdapter is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
 -------
 
