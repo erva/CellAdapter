@@ -1,7 +1,7 @@
 ext {
 
     app = [
-            versionName: '3.0.0',
+            versionName: '2.0.3',
             versionCode: 1,
     ]
 
