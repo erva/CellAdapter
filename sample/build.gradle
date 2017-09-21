@@ -3,12 +3,16 @@ apply plugin: 'android-apt'
 
 android {
     def android = rootProject.extensions.ext.android
+    def app = rootProject.extensions.ext.app
 
     compileSdkVersion android.compileSdk
     buildToolsVersion android.buildTools
 
     defaultConfig {
         applicationId android.applicationId
+        versionName = app.versionName
+        versionCode = app.versionCode
+
         minSdkVersion android.minSdk
         targetSdkVersion android.targetSdk
     }

@@ -1,4 +1,10 @@
 ext {
+
+    app = [
+            versionName: '3.0.0',
+            versionCode: 1,
+    ]
+
     android = [
             applicationId: 'io.erva.sample',
             buildTools   : '26.0.1',

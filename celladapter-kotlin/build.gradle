@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 buildscript {
-
     repositories {
         jcenter()
     }
@@ -17,11 +16,15 @@ buildscript {
 
 android {
     def android = rootProject.extensions.ext.android
+    def app = rootProject.extensions.ext.app
 
     compileSdkVersion android.compileSdk
     buildToolsVersion android.buildTools
 
     defaultConfig {
+        versionName = app.versionName
+        versionCode = app.versionCode
+
         minSdkVersion android.minSdk
         targetSdkVersion android.targetSdk
     }
