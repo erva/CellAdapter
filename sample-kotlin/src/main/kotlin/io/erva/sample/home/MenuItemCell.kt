@@ -11,6 +11,6 @@ class MenuItemCell(view: View) : Cell<MenuItemModel, Cell.Listener<MenuItemModel
 
     override fun bindView() {
         val item = item()
-        (view.findViewById(android.R.id.text1) as TextView).setText(item.titleId)
+        view.findViewById<TextView>(android.R.id.text1).setText(item.titleId)
     }
 }

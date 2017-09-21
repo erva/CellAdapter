@@ -29,6 +29,7 @@ class SampleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_with_recycler_view)
+        setTitle(R.string.toolbar_title)
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addItemDecoration(DividerItemDecoration(this))
