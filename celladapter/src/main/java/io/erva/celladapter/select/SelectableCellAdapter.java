@@ -2,7 +2,6 @@ package io.erva.celladapter.select;
 
 import android.view.ViewGroup;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +11,6 @@ import io.erva.celladapter.select.mode.SelectionManager;
 
 public class SelectableCellAdapter extends CellAdapter {
 
-    private Set<Integer> selectedPositions;
     private SelectionManager selectionManager;
 
     public SelectableCellAdapter(SelectionManager selectionManager) {
@@ -20,8 +18,8 @@ public class SelectableCellAdapter extends CellAdapter {
     }
 
     public SelectableCellAdapter(Set<Integer> selectedPositions, SelectionManager selectionManager) {
-        this.selectedPositions = selectedPositions;
         this.selectionManager = selectionManager;
+        this.selectionManager.setSelectedPositions(selectedPositions);
         this.selectionManager.setAdapter(this);
     }
 
@@ -32,31 +30,5 @@ public class SelectableCellAdapter extends CellAdapter {
             ((SelectableCell) cell).setSelectionManager(selectionManager);
         }
         return cell;
-    }
-
-    public void toggleSelection(Integer position) {
-        if (selectedPositions.contains(position)) selectedPositions.remove(position);
-        else selectedPositions.add(position);
-    }
-
-    public void setSelection(Integer position, boolean isSelected) {
-        if (isSelected) selectedPositions.add(position);
-        else selectedPositions.remove(position);
-    }
-
-    public void clearSelections(boolean notify) {
-        if (notify) {
-            for (int position : selectedPositions)
-                notifyItemChanged(position);
-        }
-        selectedPositions.clear();
-    }
-
-    public int getSelectedItemCount() {
-        return selectedPositions.size();
-    }
-
-    public Collection<Integer> getSelectedPositions() {
-        return selectedPositions;
     }
 }

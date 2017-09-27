@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import io.erva.celladapter.Cell;
@@ -29,12 +30,13 @@ public class MultiChoiceActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
-        MultiSelectionManager multiSelectionManager = new MultiSelectionManager();
-        adapter = new SelectableCellAdapter(multiSelectionManager);
+        final MultiSelectionManager multiSelectionManager = new MultiSelectionManager();
+        //new LinkedHashSet<Integer>() just for pretty actionbar subtitle. Check lib source
+        adapter = new SelectableCellAdapter(new LinkedHashSet<Integer>(), multiSelectionManager);
         adapter.registerCell(MultiChoiceModel.class, MultiChoiceCell.class, new Cell.Listener<MultiChoiceModel>() {
             @Override
             public void onCellClicked(MultiChoiceModel multiChoiceModel) {
-
+                getSupportActionBar().setSubtitle(String.format("Selected %s", multiSelectionManager.getSelectedPositions().toString()));
             }
         });
         recyclerView.setAdapter(adapter);
@@ -46,5 +48,7 @@ public class MultiChoiceActivity extends AppCompatActivity {
 
         adapter.setItems(items);
         adapter.notifyDataSetChanged();
+
+        getSupportActionBar().setSubtitle(String.format("Selected %s", multiSelectionManager.getSelectedPositions().toString()));
     }
 }

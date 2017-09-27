@@ -29,12 +29,12 @@ public class SingleChoiceActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 
-        SingleSelectionManager singleSelectionManager = new SingleSelectionManager();
+        final SingleSelectionManager singleSelectionManager = new SingleSelectionManager();
         adapter = new SelectableCellAdapter(singleSelectionManager);
         adapter.registerCell(SingleChoiceModel.class, SingleChoiceCell.class, new Cell.Listener<SingleChoiceModel>() {
             @Override
             public void onCellClicked(SingleChoiceModel singleChoiceModel) {
-
+                getSupportActionBar().setSubtitle(String.format("Selected %d", singleSelectionManager.getSelectedPosition()));
             }
         });
         recyclerView.setAdapter(adapter);
@@ -46,5 +46,6 @@ public class SingleChoiceActivity extends AppCompatActivity {
 
         adapter.setItems(items);
         adapter.notifyDataSetChanged();
+        getSupportActionBar().setSubtitle(String.format("Selected %d", singleSelectionManager.getSelectedPosition()));
     }
 }
