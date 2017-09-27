@@ -77,8 +77,8 @@ allprojects {
 Add the dependency:
 ```groovy
 dependencies {
-  compile 'com.github.erva.CellAdapter:celladapter:2.0.3'
-  compile 'com.github.erva.CellAdapter:celladapter-kotlin:2.0.3' //for kotlin projects
+  compile 'com.github.erva.CellAdapter:celladapter:2.0.4'
+  compile 'com.github.erva.CellAdapter:celladapter-kotlin:2.0.4' //for kotlin projects
 }
 ```
 
