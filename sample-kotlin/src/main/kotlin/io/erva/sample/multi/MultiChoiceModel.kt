@@ -1,3 +1,3 @@
-package io.erva.sample.single
+package io.erva.sample.multi
 
 data class MultiChoiceModel(internal var multiTitle: String)

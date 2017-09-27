@@ -5,10 +5,29 @@ import io.erva.celladapter.select.SelectableCellAdapter
 abstract class SelectionManager {
 
     lateinit var adapter: SelectableCellAdapter
+    lateinit var selectedPositions: MutableSet<Int>
 
-    abstract fun setSelection(position: Int, isSelected: Boolean)
+    open fun toggleSelection(position: Int) {
+        if (selectedPositions.contains(position)) selectedPositions.remove(position)
+        else selectedPositions.add(position)
+    }
 
-    abstract fun toggleSelection(position: Int)
+    open fun setSelection(position: Int, isSelected: Boolean) {
+        if (isSelected) selectedPositions.add(position)
+        else selectedPositions.remove(position)
+    }
+
+    fun clearSelections(notify: Boolean) {
+        if (notify) {
+            for (position in selectedPositions)
+                adapter.notifyItemChanged(position)
+        }
+        selectedPositions.clear()
+    }
+
+    fun getSelectedItemCount(): Int = selectedPositions.size
+
+    fun getSelectedPositions(): Collection<Int> = selectedPositions
 
     abstract fun isSelected(position: Int): Boolean
 }

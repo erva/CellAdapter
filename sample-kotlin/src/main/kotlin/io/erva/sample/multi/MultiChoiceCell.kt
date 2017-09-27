@@ -5,7 +5,6 @@ import io.erva.celladapter.Cell
 import io.erva.celladapter.Layout
 import io.erva.celladapter.select.SelectableCell
 import io.erva.sample.R
-import io.erva.sample.single.MultiChoiceModel
 import kotlinx.android.synthetic.main.item_multi.view.*
 
 @Layout(R.layout.item_multi)
