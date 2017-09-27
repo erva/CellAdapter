@@ -1,22 +1,22 @@
 ext {
 
     app = [
-            versionName: '3.0.0',
+            versionName: '2.0.4',
             versionCode: 1,
     ]
 
     android = [
             applicationId: 'io.erva.sample',
-            buildTools   : '26.0.1',
-            compileSdk   : 26,
+            buildTools   : '25.0.2',
+            compileSdk   : 25,
             minSdk       : 15,
-            targetSdk    : 26
+            targetSdk    : 25
     ]
 
     version = [
-            recyclerview: '26.1.0',
-            appcompat   : '26.1.0',
+            recyclerview: '25.3.1',
+            appcompat   : '25.3.1',
             butterknife : '8.8.1',
-            kotlin      : '1.1.4-3'
+            kotlin      : '1.1.50'
     ]
 }
