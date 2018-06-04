@@ -77,8 +77,12 @@ allprojects {
 Add the dependency:
 ```groovy
 dependencies {
-  compile 'com.github.erva.CellAdapter:celladapter:2.0.4'
-  compile 'com.github.erva.CellAdapter:celladapter-kotlin:2.0.4' //for kotlin projects
+  implementation 'com.android.support:recyclerview-v7:27.1.1'	// +
+  
+  implementation ('com.github.erva.CellAdapter:celladapter:2.0.4') {	    // for java projects
+  implementation ('com.github.erva.CellAdapter:celladapter-kotlin:2.0.4') { // for kotlin projects
+  	exclude group: 'com.android.support', module: 'recyclerview-v7'
+  }
 }
 ```
 
