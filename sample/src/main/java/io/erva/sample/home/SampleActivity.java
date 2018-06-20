@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.Arrays;
 
-import io.erva.celladapter.Cell;
-import io.erva.celladapter.CellAdapter;
+import io.erva.celladapter.v7.Cell;
+import io.erva.celladapter.v7.CellAdapter;
 import io.erva.sample.DividerItemDecoration;
 import io.erva.sample.R;
 import io.erva.sample.base.BaseSampleActivity;

@@ -1,9 +1,9 @@
-package io.erva.celladapter.select;
+package io.erva.celladapter.x.select;
 
 import android.view.View;
 
-import io.erva.celladapter.Cell;
-import io.erva.celladapter.select.mode.SelectionManager;
+import io.erva.celladapter.x.Cell;
+import io.erva.celladapter.x.select.mode.SelectionManager;
 
 public abstract class SelectableCell<ITEM, LISTENER extends Cell.Listener<ITEM>> extends Cell<ITEM, LISTENER> {
 

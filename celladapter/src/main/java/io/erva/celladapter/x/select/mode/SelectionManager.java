@@ -1,10 +1,9 @@
-package io.erva.celladapter.select.mode;
-
-import android.support.v7.widget.RecyclerView;
+package io.erva.celladapter.x.select.mode;
 
 import java.util.Set;
 
-import io.erva.celladapter.select.SelectableCellAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+import io.erva.celladapter.x.select.SelectableCellAdapter;
 
 public abstract class SelectionManager {
 

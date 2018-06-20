@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
-import io.erva.celladapter.CellAdapter
+import io.erva.celladapter.v7.CellAdapter
 import io.erva.sample.DividerItemDecoration
 import io.erva.sample.R
 import io.erva.sample.base.cell.AlphaCell

@@ -5,8 +5,8 @@ import android.widget.CheckBox;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.erva.celladapter.Cell;
 import io.erva.celladapter.Layout;
+import io.erva.celladapter.v7.Cell;
 import io.erva.sample.BaseSelectableCell;
 import io.erva.sample.R;
 

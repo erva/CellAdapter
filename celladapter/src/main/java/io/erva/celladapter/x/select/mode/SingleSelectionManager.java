@@ -1,4 +1,4 @@
-package io.erva.celladapter.select.mode;
+package io.erva.celladapter.x.select.mode;
 
 public class SingleSelectionManager extends SelectionManager {
 

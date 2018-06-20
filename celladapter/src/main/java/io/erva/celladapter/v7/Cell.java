@@ -1,4 +1,4 @@
-package io.erva.celladapter;
+package io.erva.celladapter.v7;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

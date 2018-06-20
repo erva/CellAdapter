@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import io.erva.celladapter.Cell;
-import io.erva.celladapter.select.SelectableCellAdapter;
-import io.erva.celladapter.select.mode.MultiSelectionManager;
+import io.erva.celladapter.v7.Cell;
+import io.erva.celladapter.v7.select.SelectableCellAdapter;
+import io.erva.celladapter.v7.select.mode.MultiSelectionManager;
 import io.erva.sample.DividerItemDecoration;
 import io.erva.sample.R;
 

@@ -9,9 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.erva.celladapter.Cell;
-import io.erva.celladapter.select.SelectableCellAdapter;
-import io.erva.celladapter.select.mode.SingleSelectionManager;
+import io.erva.celladapter.v7.Cell;
+import io.erva.celladapter.v7.select.SelectableCellAdapter;
+import io.erva.celladapter.v7.select.mode.SingleSelectionManager;
 import io.erva.sample.DividerItemDecoration;
 import io.erva.sample.R;
 
@@ -25,7 +25,7 @@ public class SingleChoiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_recycler_view);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 

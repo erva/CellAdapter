@@ -77,18 +77,16 @@ allprojects {
 Add the dependency:
 ```groovy
 dependencies {
-  compile 'com.github.erva.CellAdapter:celladapter:2.0.4'
-  compile 'com.github.erva.CellAdapter:celladapter-kotlin:2.0.4' //for kotlin projects
+  compile 'com.github.erva.CellAdapter:celladapter:3.0.0'
+  compile 'com.github.erva.CellAdapter:celladapter-kotlin:3.0.0' //for kotlin projects
 }
 ```
 
 ## Proguard
 ```
 #CellAdapter
+-dontwarn io.erva.celladapter.**
 -keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
--keepclassmembers class * extends io.erva.celladapter.Cell {
-    <init>(android.view.View);
-}
 ```
 
 ## License

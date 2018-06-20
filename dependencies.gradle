@@ -13,8 +13,12 @@ ext {
     ]
 
     version = [
-            recyclerview: '27.1.1',
             appcompat   : '27.1.1',
+            recyclerview: '27.1.1',
+
+            xappcompat   : '1.0.0-alpha3',
+            xrecyclerview: '1.0.0-alpha3',
+
             butterknife : '8.8.1',
             kotlin      : '1.2.50'
     ]

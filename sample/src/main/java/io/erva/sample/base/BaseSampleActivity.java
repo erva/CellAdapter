@@ -9,7 +9,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.erva.celladapter.CellAdapter;
+import io.erva.celladapter.v7.CellAdapter;
 import io.erva.sample.DividerItemDecoration;
 import io.erva.sample.R;
 import io.erva.sample.base.cell.AlphaCell;
@@ -30,7 +30,7 @@ public class BaseSampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_recycler_view);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this));
 

@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import io.erva.celladapter.Cell;
 import io.erva.celladapter.Layout;
+import io.erva.celladapter.v7.Cell;
 import io.erva.sample.BaseCell;
 import io.erva.sample.R;
 import io.erva.sample.base.model.BetaModel;

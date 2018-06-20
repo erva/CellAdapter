@@ -1,9 +1,9 @@
-package io.erva.celladapter.select
+package io.erva.celladapter.v7.select
 
 import android.view.ViewGroup
-import io.erva.celladapter.Cell
-import io.erva.celladapter.CellAdapter
-import io.erva.celladapter.select.mode.SelectionManager
+import io.erva.celladapter.v7.Cell
+import io.erva.celladapter.v7.CellAdapter
+import io.erva.celladapter.v7.select.mode.SelectionManager
 
 class SelectableCellAdapter(private val selectedPositions: MutableSet<Int> = HashSet<Int>(), val selectionManager: SelectionManager) : CellAdapter() {
 

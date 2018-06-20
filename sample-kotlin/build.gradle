@@ -34,6 +34,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -42,9 +46,15 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':celladapter-kotlin', configuration: 'default')
+    api project(path: ':celladapter-kotlin')
+
     def version = rootProject.extensions.ext.version
 
     implementation "com.android.support:appcompat-v7:$version.appcompat"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
+    implementation "com.android.support:recyclerview-v7:$version.recyclerview"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$version.kotlin"
+}
+
+configurations.all {
+    exclude group: 'androidx.recyclerview', module: 'recyclerview'
 }

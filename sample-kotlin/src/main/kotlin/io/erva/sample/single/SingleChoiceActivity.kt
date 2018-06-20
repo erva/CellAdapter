@@ -3,10 +3,10 @@ package io.erva.sample.single
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import io.erva.celladapter.Cell
-import io.erva.celladapter.CellAdapter
-import io.erva.celladapter.select.SelectableCellAdapter
-import io.erva.celladapter.select.mode.SingleSelectionManager
+import io.erva.celladapter.v7.Cell
+import io.erva.celladapter.v7.CellAdapter
+import io.erva.celladapter.v7.select.SelectableCellAdapter
+import io.erva.celladapter.v7.select.mode.SingleSelectionManager
 import io.erva.sample.DividerItemDecoration
 import io.erva.sample.R
 import kotlinx.android.synthetic.main.activity_with_recycler_view.*

@@ -1,7 +1,7 @@
-package io.erva.celladapter
+package io.erva.celladapter.x
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 abstract class Cell<ITEM : Any, out LISTENER : Cell.Listener<ITEM>>(val view: View) : RecyclerView.ViewHolder(view) {
 

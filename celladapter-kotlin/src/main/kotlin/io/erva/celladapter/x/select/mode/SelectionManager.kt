@@ -1,6 +1,6 @@
-package io.erva.celladapter.select.mode
+package io.erva.celladapter.x.select.mode
 
-import io.erva.celladapter.select.SelectableCellAdapter
+import io.erva.celladapter.x.select.SelectableCellAdapter
 
 abstract class SelectionManager {
 

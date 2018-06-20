@@ -1,9 +1,10 @@
-package io.erva.celladapter
+package io.erva.celladapter.v7
 
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import io.erva.celladapter.Layout
 import java.util.*
 import kotlin.reflect.KClass
 

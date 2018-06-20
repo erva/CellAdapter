@@ -1,13 +1,13 @@
-package io.erva.celladapter.select;
+package io.erva.celladapter.v7.select;
 
 import android.view.ViewGroup;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import io.erva.celladapter.Cell;
-import io.erva.celladapter.CellAdapter;
-import io.erva.celladapter.select.mode.SelectionManager;
+import io.erva.celladapter.v7.Cell;
+import io.erva.celladapter.v7.CellAdapter;
+import io.erva.celladapter.v7.select.mode.SelectionManager;
 
 public class SelectableCellAdapter extends CellAdapter {
 

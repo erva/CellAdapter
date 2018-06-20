@@ -16,6 +16,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -24,11 +28,16 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':celladapter', configuration: 'default')
+    api project(path: ':celladapter')
+
     def version = rootProject.extensions.ext.version
 
-    implementation "com.android.support:appcompat-v7:${version.appcompat}"
+    implementation "com.android.support:appcompat-v7:$version.appcompat"
+    implementation "com.android.support:recyclerview-v7:$version.recyclerview"
+    implementation "com.jakewharton:butterknife:$version.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$version.butterknife"
+}
 
-    implementation "com.jakewharton:butterknife:${version.butterknife}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${version.butterknife}"
+configurations.all {
+    exclude group: 'androidx.recyclerview', module: 'recyclerview'
 }
