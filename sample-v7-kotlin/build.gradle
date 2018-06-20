@@ -1,4 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        def version = rootProject.extensions.ext.version
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlin"
+    }
+}
 
 android {
     def android = rootProject.extensions.ext.android
@@ -15,11 +29,11 @@ android {
         targetSdkVersion android.targetSdk
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     buildTypes {
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -28,14 +42,13 @@ android {
 }
 
 dependencies {
-    api project(path: ':celladapter')
+    api project(path: ':celladapter-kotlin')
 
     def version = rootProject.extensions.ext.version
 
     implementation "com.android.support:appcompat-v7:$version.appcompat"
     implementation "com.android.support:recyclerview-v7:$version.recyclerview"
-    implementation "com.jakewharton:butterknife:$version.butterknife"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$version.butterknife"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
 }
 
 configurations.all {

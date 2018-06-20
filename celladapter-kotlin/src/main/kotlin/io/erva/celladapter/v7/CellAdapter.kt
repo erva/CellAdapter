@@ -8,15 +8,15 @@ import io.erva.celladapter.Layout
 import java.util.*
 import kotlin.reflect.KClass
 
-open class CellAdapter : RecyclerView.Adapter<Cell<out Any, out Cell.Listener<out Any>>>() {
+open class CellAdapter : RecyclerView.Adapter<Cell<out Any, Cell.Listener<out Any>>>() {
 
-    private val itemCellMapping = HashMap<KClass<*>, KClass<out Cell<out Any, out Cell.Listener<out Any>>>>()
+    private val itemCellMapping = HashMap<KClass<*>, KClass<out Cell<out Any, Cell.Listener<out Any>>>>()
     private val viewTypes: MutableList<KClass<*>> = mutableListOf()
     private val itemListenerMapping = SparseArray<Cell.Listener<out Any>>()
 
     val items: MutableList<Any> = mutableListOf()
 
-    open fun cell(cellClass: KClass<out Cell<out Any, out Cell.Listener<out Any>>>,
+    open fun cell(cellClass: KClass<out Cell<out Any, Cell.Listener<out Any>>>,
                   cellDataBuilderFunc: CellDataBuilder.() -> CellDataBuilder): CellAdapter {
         val cellDataBuilder = CellDataBuilder().cellDataBuilderFunc()
         itemCellMapping.put(cellDataBuilder.itemClass, cellClass)
@@ -29,7 +29,7 @@ open class CellAdapter : RecyclerView.Adapter<Cell<out Any, out Cell.Listener<ou
         return this
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Cell<out Any, out Cell.Listener<out Any>> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Cell<out Any, Cell.Listener<out Any>> {
         val cellClass = itemCellMapping[viewTypes[viewType]]!!
         val layoutAnnotation = cellClass.annotations
                 .filter { it is Layout }
@@ -49,7 +49,7 @@ open class CellAdapter : RecyclerView.Adapter<Cell<out Any, out Cell.Listener<ou
         return index
     }
 
-    override fun onBindViewHolder(cell: Cell<out Any, out Cell.Listener<out Any>>, position: Int) {
+    override fun onBindViewHolder(cell: Cell<out Any, Cell.Listener<out Any>>, position: Int) {
         val item = getItem(position)
         cell.listener(itemListenerMapping.get(getItemViewType(position)))
         cell.item(item)
