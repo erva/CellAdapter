@@ -7,16 +7,15 @@ ext {
 
     android = [
             applicationId: 'io.erva.sample',
-            buildTools   : '25.0.2',
-            compileSdk   : 25,
             minSdk       : 15,
-            targetSdk    : 25
+            targetSdk    : 28,
+            compileSdk   : 28,
     ]
 
     version = [
-            recyclerview: '25.3.1',
-            appcompat   : '25.3.1',
+            recyclerview: '27.1.1',
+            appcompat   : '27.1.1',
             butterknife : '8.8.1',
-            kotlin      : '1.1.50'
+            kotlin      : '1.2.50'
     ]
 }

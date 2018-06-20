@@ -22,7 +22,6 @@ android {
     def app = rootProject.extensions.ext.app
 
     compileSdkVersion android.compileSdk
-    buildToolsVersion android.buildTools
 
     defaultConfig {
         versionName = app.versionName
@@ -40,7 +39,7 @@ android {
 dependencies {
     def version = rootProject.extensions.ext.version
 
-    compile "com.android.support:recyclerview-v7:$version.recyclerview"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$version.kotlin"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$version.kotlin"
+    implementation "com.android.support:recyclerview-v7:$version.recyclerview"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$version.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$version.kotlin"
 }

@@ -19,7 +19,6 @@ android {
     def app = rootProject.extensions.ext.app
 
     compileSdkVersion android.compileSdk
-    buildToolsVersion android.buildTools
 
     defaultConfig {
         applicationId android.applicationId
@@ -43,9 +42,9 @@ android {
 }
 
 dependencies {
-    compile project(path: ':celladapter-kotlin')
+    implementation project(path: ':celladapter-kotlin', configuration: 'default')
     def version = rootProject.extensions.ext.version
 
-    compile "com.android.support:appcompat-v7:$version.appcompat"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$version.kotlin"
+    implementation "com.android.support:appcompat-v7:$version.appcompat"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
 }
