@@ -7,62 +7,89 @@ This library simplifies RecyclerView with multiple view types.
 Main points:
 
 * Single adapter class for all project
-* Extend item types in RecyclerView - just register in adapter and extend Cell.class for mapping model with UI (below more details + [`sample`](https://github.com/erva/CellAdapter/tree/master/sample/src/main/java/io/erva/sample))
-* Add any UI listeners to each item type
+* Easy to use - just register Cell, Model and ClickListener (optional) in adapter
+* Listen clicks on any View of any type
+* Build-in single / multi select
+* Supports Java / Kotlin and *androidx.recyclerview*/*support:recyclerview-v7*
 
 No more code like this:
 ```java
 @Override
 public int getItemViewType(int position) {
-	// Just as an example, return 0 or 2 depending on position
-	return position % 2 * 2;
+	    // Just as an example, return 0 or 2 depending on position
+	    return position % 2 * 2;
 }
 
 @Override
 public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-	switch (viewType) {
-		case 0: return new ViewHolder0(...);
-		case 2: return new ViewHolder2(...);
-		...
-	}
+	    switch (viewType) {
+		    case 0: return new ViewHolder0(...);
+		    case 2: return new ViewHolder2(...);
+		    ...
+	    }
 }
 ```
 
 ## Usage
 
+### Java
 ```java
 CellAdapter adapter = new CellAdapter(context);
 //feel free to register multiple models and cells (model per cell, so your RecyclerView would represent multiple view types)
-adapter.registerCell(Model.class, YourCell.class, new YourCell.Listener(){}); 
-
-List items = new ArrayList();
-items.add(new Model());
-adapter.setItems(items);
-adapter.notifyDataSetChanged();
+adapter.registerCell(SampleModel.class, SampleCell.class, new SampleCell.Listener(){}); 
 ```
-where
-`Model.class` is POJO and `YourCell.class` is
+
+### Kotlin
 ```java
-@Layout(R.layout.your_cell_view)
-public class YourCell extends Cell<Model, YourCell.Listener> {
+var adapter: CellAdapter = CellAdapter().let {
+        it.cell(SampleCell1::class) {
+            item(SampleModel1::class)
+            listener(object : SampleCell1.Listener {})
+        }
+        it.cell(SampleCell2::class) {
+            item(SampleModel2::class)
+            listener(object : SampleCell2.Listener {})
+        }
+    }
+```
 
- 	@Override
-	protected void bindView() {
-		getItem(); // is your Model object
-	}
+where
+`SampleModel.class` is POJO and `SampleCell.class` is
+```java
+@Layout(R.layout.cell_sample)
+public class SampleCell extends Cell<SampleModel, SampleCell.Listener> {
+
+    @Override
+    protected void bindView() {
+        getItem(); // is your Model object
+    }
     
-	protected void clearResources() {
-		//optional
-	}
+    protected void clearResources() {
+        //optional
+    }
 
-	public interface Listener extends Cell.Listener<Model> {
-		void callbackSample(Model model);
-	}
+    public interface Listener extends Cell.Listener<Model> {
+        void callbackSample(Model model);
+    }
 }
 ```
-Also please find 
-[`CellAdapter/sample/src/main/java/io/erva/sample/BaseCell.java`](https://github.com/erva/CellAdapter/blob/master/sample/src/main/java/io/erva/sample/BaseCell.java) 
-there is sample how to implement ButterKnife in Cells.
+Kotlin is almost the same. Check samples for details.
+
+### Samples and hints
+* [`Java + support:recyclerview-v7`](https://github.com/erva/CellAdapter/blob/master/sample-v7) 
+* [`Kotlin + support:recyclerview-v7`](https://github.com/erva/CellAdapter/blob/master/sample-v7-kotlin) 
+* [`Kotlin + androidx.recyclerview`](https://github.com/erva/CellAdapter/blob/master/sample-x-kotlin) 
+* [`How to implement ButterKnife in Cells`](https://github.com/erva/CellAdapter/blob/master/sample-v7/src/main/java/io/erva/sample/BaseCell.java) 
+
+## Versions
+
+### 3.0.0
+For *androidx* - `import io.erva.celladapter.x...`
+For *support:recyclerview-v7* - `import io.erva.celladapter.v7...`
+
+### 2.0.4 
+You have only `import io.erva.celladapter`
+*support:recyclerview-v7* by default
 
 ## Download
 
@@ -77,22 +104,52 @@ allprojects {
 Add the dependency:
 ```groovy
 dependencies {
-  implementation 'com.android.support:recyclerview-v7:27.1.1'	// +
-  
-  implementation ('com.github.erva.CellAdapter:celladapter:2.0.4') {	    // for java projects
-  implementation ('com.github.erva.CellAdapter:celladapter-kotlin:2.0.4') { // for kotlin projects
-  	exclude group: 'com.android.support', module: 'recyclerview-v7'
-  }
+    
+    // one of two
+    implementation "com.android.support:recyclerview-v7:27.1.1" // any version
+    implementation "androidx.recyclerview:recyclerview:1.0.0-alpha3" // any version
+
+    
+    // for java projects
+    implementation ('com.github.erva.CellAdapter:celladapter:3.0.0') {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'androidx.recyclerview', module: 'recyclerview'
+    }
+    
+    // for kotlin projects
+    implementation ('com.github.erva.CellAdapter:celladapter-kotlin:3.0.0') {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'androidx.recyclerview', module: 'recyclerview'
+    } 
 }
 ```
 
 ## Proguard
+
+### 3.0.0
+
+#### Java
 ```
 #CellAdapter
+-dontwarn io.erva.celladapter.**
 -keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
--keepclassmembers class * extends io.erva.celladapter.Cell {
+```
+
+#### Kotlin
+```
+#CellAdapter
+-dontwarn io.erva.celladapter.**
+-keep public class kotlin.reflect.jvm.internal.impl.builtins.* { public *; }
+-keepclassmembers class * extends io.erva.celladapter.** {
     <init>(android.view.View);
 }
+```
+
+### 2.0.4
+```
+#CellAdapter
+-dontwarn io.erva.celladapter.**
+-keepclasseswithmembers public class * extends io.erva.celladapter.** { *; }
 ```
 
 ## License

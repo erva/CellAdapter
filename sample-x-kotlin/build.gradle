@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        def version = rootProject.extensions.ext.version
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlin"
+    }
+}
+
+android {
+    def android = rootProject.extensions.ext.android
+    def app = rootProject.extensions.ext.app
+
+    compileSdkVersion android.compileSdk
+
+    defaultConfig {
+        applicationId android.applicationId
+        versionName = app.versionName
+        versionCode = app.versionCode
+
+        minSdkVersion android.minSdk
+        targetSdkVersion android.targetSdk
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api project(path: ':celladapter-kotlin')
+
+    def version = rootProject.extensions.ext.version
+
+    implementation "androidx.appcompat:appcompat:$version.xappcompat"
+    implementation "androidx.recyclerview:recyclerview:$version.xappcompat"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
+}
+
+configurations.all {
+    exclude group: 'com.android.support', module: 'recyclerview-v7'
+}

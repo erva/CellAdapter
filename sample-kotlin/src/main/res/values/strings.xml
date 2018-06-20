@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Cell Adapter</string>
-    <string name="toolbar_title">Cell Adapter - Kotlin</string>
-    <string name="sample_base">Base sample</string>
-    <string name="sample_single_choice">Single choice sample</string>
-    <string name="sample_multi_choice">Multi choice sample</string>
-</resources>
