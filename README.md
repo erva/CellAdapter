@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/erva/CellAdapter.svg)](https://jitpack.io/#erva/CellAdapter)
 
+![](https://github.com/erva/CellAdapter/blob/master/sample-v7-kotlin/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true)
+
 This library simplifies RecyclerView with multiple view types.
 Main points:
 
@@ -16,17 +18,17 @@ No more code like this:
 ```java
 @Override
 public int getItemViewType(int position) {
-	    // Just as an example, return 0 or 2 depending on position
-	    return position % 2 * 2;
+	// Just as an example, return 0 or 2 depending on position
+	return position % 2 * 2;
 }
 
 @Override
 public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-	    switch (viewType) {
-		    case 0: return new ViewHolder0(...);
-		    case 2: return new ViewHolder2(...);
-		    ...
-	    }
+	switch (viewType) {
+		case 0: return new ViewHolder0(...);
+		case 2: return new ViewHolder2(...);
+		...
+	}
 }
 ```
 
@@ -35,7 +37,8 @@ public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType
 ### Java
 ```java
 CellAdapter adapter = new CellAdapter(context);
-//feel free to register multiple models and cells (model per cell, so your RecyclerView would represent multiple view types)
+// feel free to register multiple models and cells 
+// model per cell, so your RecyclerView would represent multiple view types
 adapter.registerCell(SampleModel.class, SampleCell.class, new SampleCell.Listener(){}); 
 ```
 
@@ -85,10 +88,12 @@ Kotlin is almost the same. Check samples for details.
 
 ### 3.0.0
 For *androidx* - `import io.erva.celladapter.x...`
+
 For *support:recyclerview-v7* - `import io.erva.celladapter.v7...`
 
 ### 2.0.4 
 You have only `import io.erva.celladapter`
+
 *support:recyclerview-v7* by default
 
 ## Download
