@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![](https://jitpack.io/v/erva/CellAdapter.svg)](https://jitpack.io/#erva/CellAdapter)
 
-![](https://github.com/erva/CellAdapter/blob/master/sample-v7-kotlin/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true)
+![GitHub Logo](/images/ic_launcher.png)
 
 This library simplifies RecyclerView with multiple view types.
 Main points:
