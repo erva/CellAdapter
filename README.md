@@ -11,7 +11,7 @@ Main points:
 * Single adapter class for all project
 * Easy to use - just register Cell, Model and ClickListener (optional) in adapter
 * Listen clicks on any View of any type
-* Build-in single / multi select
+* Built-in single / multi select
 * Supports Java / Kotlin and *androidx.recyclerview*/*support:recyclerview-v7*
 
 No more code like this:
